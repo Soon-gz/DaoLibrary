@@ -1,1 +1,2 @@
-# LemonDao
+# DaoLibrary
+自定义封装的sqlitedatabase框架，采用数据库映射进行缓存
