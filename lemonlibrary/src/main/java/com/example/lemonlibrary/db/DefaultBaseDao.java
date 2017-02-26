@@ -18,12 +18,13 @@ import java.util.Map;
  * Created by ShuWen on 2017/2/26.
  */
 
+@SuppressWarnings("unchecked")
 public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     private  static final String TAG = "LemonDaoLibrary";
     /**
      * @param sql 执行的sql语句
-     * @return 结果集合
+     * @return
      */
     @Override
     public List<T> query(String sql,Class<T> entity) {
@@ -33,7 +34,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
     /**
      * @param sql 执行语句
      * @param args 对应的sql中的条件
-     * @return 结果集合
+     * @return
      */
     @Override
     public List<T> query(String sql,Class<T> entity, String[] args) {
@@ -49,7 +50,6 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     /**
      * @param entity 插入的类型具体数据
-     * @return 插入结果
      */
     @Override
     public Long insert(T entity) {
@@ -61,7 +61,6 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     /**
      * @param sql 插入的sql语句
-     * @return 结果
      */
     @Override
     public void insert(String sql) {
@@ -75,7 +74,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
     /**
      * @param newEntity  新的类型
      * @param where 更新的条件
-     * @return 更新的个数
+     * @return
      */
     @Override
     public int update(T newEntity, T where) {
@@ -120,7 +119,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     /**
      * @param entity 删除的条件
-     * @return 返回删除的个数
+     * @return
      */
     @Override
     public int delete(T entity) {
@@ -135,7 +134,6 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     /**
      * @param sql 条件语句
-     * @return 数量
      */
     @Override
     public void delete(String sql) {
@@ -149,7 +147,6 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
     /**
      * @param sql 条件语句
      * @param args 条件语句对应的值
-     * @return 数量
      */
     @Override
     public void delete(String sql, String[] args) {
@@ -162,7 +159,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     /**
      * @param entity  查询的条件
-     * @return 结果集合
+     * @return
      */
     @Override
     public List<T> query(T entity) {
@@ -174,7 +171,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
      * @param orderby 排序规则
      * @param startInt 开始位置
      * @param limit 限制数量
-     * @return 结果集合
+     * @return
      */
     @Override
     public List<T> query(T entity, String orderby, Integer startInt, Integer limit) {
@@ -197,7 +194,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
     /**
      * @param cursor 查询语句获得游标
      * @param entity 结果的类型
-     * @return 结果集合
+     * @return
      */
     private List<T> getResult(Cursor cursor, T entity) {
         List result = new ArrayList();
@@ -218,7 +215,6 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
                         } else if (type == Double.class || type == double.class) {
                             colField.set(item, cursor.getDouble(colIndex));
                         } else if (type == Integer.class || type == int.class) {
-                            int value = cursor.getInt(colIndex);
                             colField.set(item, cursor.getInt(colIndex));
                         } else if (type == Long.class || type == long.class) {
                             colField.set(item, cursor.getLong(colIndex));
@@ -253,7 +249,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
     /**
      * @param cursor 查询语句获得游标
      * @param entity 结果的类型
-     * @return 结果集合
+     * @return
      */
     private List<T> getResult(Cursor cursor, Class<T> entity) {
         List result = new ArrayList();
@@ -274,7 +270,6 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
                         } else if (type == Double.class || type == double.class) {
                             colField.set(item, cursor.getDouble(colIndex));
                         } else if (type == Integer.class || type == int.class) {
-                            int value = cursor.getInt(colIndex);
                             colField.set(item, cursor.getInt(colIndex));
                         } else if (type == Long.class || type == long.class) {
                             colField.set(item, cursor.getLong(colIndex));
@@ -309,7 +304,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     /**
      * @param map  表字段名和实际储存数据的缓存
-     * @return contentValues
+     * @return
      */
     private ContentValues getContentValues(HashMap<String, String> map) {
         ContentValues contentValues = new ContentValues();
@@ -326,7 +321,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
 
     /**
      * @param entity 通过表映射缓存和传入需要存储的实际数据
-     * @return 得到表字段名和实际数据的缓存
+     * @return
      */
     private HashMap<String, String> getValues(T entity) {
         HashMap<String, String> map = new HashMap<>();
@@ -360,7 +355,7 @@ public abstract class DefaultBaseDao<T> extends BaseDao<T> {
      * 这里有个漏洞，发现的朋友可以告诉我解决方案。
      * 联系方式：qq:794918578
      * @param entity 通过表映射缓存和传入需要存储的实际数据 这里去掉一些特殊数据类型的默认情况
-     * @return  得到表字段名和实际数据的缓存
+     * @return
      */
     private HashMap<String, String> getConditionValues(T entity) {
         HashMap<String, String> map = new HashMap<>();

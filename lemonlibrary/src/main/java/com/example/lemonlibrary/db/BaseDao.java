@@ -185,7 +185,9 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
         } catch (Exception e) {
 
         } finally {
-            cursor.close();
+            if (cursor!= null){
+                cursor.close();
+            }
         }
     }
 

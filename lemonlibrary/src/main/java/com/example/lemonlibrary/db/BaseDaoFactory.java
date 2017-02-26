@@ -8,6 +8,7 @@ import java.io.File;
  * Created by ShuWen on 2017/1/9 0009.
  */
 
+@SuppressWarnings("unchecked")
 public class BaseDaoFactory {
     private String sqliteDatabasePath;
 
@@ -22,17 +23,20 @@ public class BaseDaoFactory {
     }
 
     /**
-     * 建立数据库与表的链接
+     *
+     * @param clazz
+     * @param entityClass
+     * @param sqliteDbPath
+     * @param dbName
+     * @param <T>
+     * @param <M>
+     * @return
      */
     public  synchronized  <T extends  BaseDao<M>,M> T
     getSqliteComponent(Class<T> clazz,Class<M> entityClass,String sqliteDbPath,String dbName)
     {
 
         File file=new File(sqliteDbPath);
-        if(!file.exists())
-        {
-            file.mkdirs();
-        }
         String newSqlitePath = file.getAbsolutePath() + File.separator + dbName;
         //不同数据库切换，需要先关闭上个数据库
         if (sqliteDatabasePath != null && !sqliteDatabasePath.equals(newSqlitePath)){

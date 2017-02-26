@@ -16,6 +16,7 @@ import com.example.lemonlibrary.db.IBaseDao;
 import java.io.File;
 import java.util.List;
 
+@SuppressWarnings("unchecked")
 public class MainActivity extends AppCompatActivity {
 
     private IBaseDao iBaseDao;

@@ -31,14 +31,24 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+allprojects {
+    tasks.withType(Javadoc) {
+        options{
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
+}
+
 //添加
 publish {
     userOrg = 'singleshu8'//bintray.com用户名  也就是Organization的名称，可以建多个
     groupId = 'com.singleShu'//jecnter上的路径 可以自定义
     artifactId = 'LemonDao'//项目名称
-    publishVersion = '1.0.1'//版本号
+    publishVersion = '1.0.2'//版本号
     desc = 'this is for test'//描述
-    website = 'https://github.com/SingleShu/LemonDao'//网址
+    website = 'https://github.com/SingleShu/DaoLibrary'//网址
 }
 
 //gradlew clean build bintrayUpload -PbintrayUser=singleshu8  -PbintrayKey=05784fb3e746c17ca06b76abe0f8e186068db031 -PdryRun=false

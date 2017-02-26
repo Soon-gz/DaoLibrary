@@ -10,7 +10,7 @@ public interface IBaseDao<T> {
     /**
      * 插入数据
      * @param entity 插入的类型
-     * @return 结果
+     * @return
      */
     Long insert(T entity);
 
@@ -24,34 +24,30 @@ public interface IBaseDao<T> {
      *
      * @param entity 更新的数据
      * @param where 条件语句
-     * @return 改变的数量
+     * @return
      */
     int  update(T entity, T where);
     /**
      *
      * @param sql 条件语句
-     * @return 改变的数量
      */
     void  update(String sql);
     /**
      *
      * @param sql sql语句
      * @param args 条件语句
-     * @return 改变的数量
      */
     void  update(String sql,String[] args);
 
     /**
      * 删除数据
      * @param where 条件语句
-     * @return 删除数量
      */
     int  delete(T where);
 
     /**
      * 删除数据
      * @param sql 条件语句
-     * @return 删除数量
      */
     void delete(String sql);
 
@@ -59,12 +55,12 @@ public interface IBaseDao<T> {
      * 删除数据
      * @param sql 条件语句
      * @param args 条件语句对应的值
-     * @return 删除数量
      */
     void  delete(String sql,String[] args);
 
     /**
-     * 查询数据
+     * @param where
+     * @return
      */
     List<T> query(T where);
 
@@ -74,20 +70,22 @@ public interface IBaseDao<T> {
      * @param orderBy 排序规则
      * @param startIndex 开始查询的位置
      * @param limit 限制数量
-     * @return 返回结果的集合
+     * @return
      */
     List<T> query(T where, String orderBy, Integer startIndex, Integer limit);
 
     /**
-     * @param sql 执行的sql语句
-     * @return 返回的结果集合
+     * @param sql
+     * @param entity
+     * @return
      */
     List<T> query(String sql,Class<T> entity);
 
     /**
-     * @param sql 执行语句
-     * @param args 对应的sql中的条件
-     * @return 返回结果集合
+     * @param sql
+     * @param entity
+     * @param args
+     * @return
      */
     List<T> query(String sql,Class<T> entity,String[] args);
 
