@@ -2,6 +2,7 @@ package com.example.administrator.lemondao.dataModel;
 
 
 import com.example.lemonlibrary.db.annotion.DbField;
+import com.example.lemonlibrary.db.annotion.DbPrimaryField;
 import com.example.lemonlibrary.db.annotion.DbTable;
 
 /**
@@ -10,6 +11,9 @@ import com.example.lemonlibrary.db.annotion.DbTable;
 
 @DbTable(value = "tb_user")
 public class User {
+
+    @DbPrimaryField(value = "id")
+    private int id;
     @DbField(value = "user_name")
     private String name;
     @DbField(value = "user_address")
@@ -119,7 +123,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", psw='" + psw + '\'' +
                 ", status=" + status +

@@ -18,6 +18,18 @@
         android:layout_height="wrap_content"
         android:text="增加一个用户"/>
     <Button
+        android:id="@+id/add_file"
+        android:onClick="click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="增加一个文件"/>
+    <Button
+        android:id="@+id/add_sqlite_file"
+        android:onClick="click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="增加不同数据库一个文件"/>
+    <Button
         android:id="@+id/delete_user"
         android:layout_marginTop="5dp"
         android:onClick="click"

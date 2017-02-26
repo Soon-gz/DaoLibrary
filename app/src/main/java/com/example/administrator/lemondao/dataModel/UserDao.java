@@ -2,6 +2,7 @@ package com.example.administrator.lemondao.dataModel;
 
 
 import com.example.lemonlibrary.db.BaseDao;
+import com.example.lemonlibrary.db.DefaultBaseDao;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * Created by ShuWen on 2017/2/12.
  */
 
-public class UserDao extends BaseDao<User> {
+public class UserDao extends DefaultBaseDao<User> {
 
 
 //    @Override

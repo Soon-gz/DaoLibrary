@@ -2,6 +2,7 @@ package com.example.administrator.lemondao.dataModel;
 
 
 import com.example.lemonlibrary.db.annotion.DbField;
+import com.example.lemonlibrary.db.annotion.DbPrimaryField;
 import com.example.lemonlibrary.db.annotion.DbTable;
 
 /**
@@ -9,6 +10,9 @@ import com.example.lemonlibrary.db.annotion.DbTable;
  */
 @DbTable(value = "tb_file")
 public class FileModel {
+
+    @DbPrimaryField(value = "id")
+    private int id;
     @DbField(value = "tb_filename")
     private String fileName;
     @DbField(value = "tb_filepath")
